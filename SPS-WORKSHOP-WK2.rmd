@@ -1,10 +1,11 @@
 # Done by Tage Singh
 ## CUNY SPS R-Workshop
+## Tage N Singh
 
 ```{r,vocab,echo=FALSE}
 
-library(crayon)
-library(kableExtra)
+#library(crayon)
+#library(kableExtra)
 
 
 vocabURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/Vocab.csv")
