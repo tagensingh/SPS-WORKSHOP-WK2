@@ -4,6 +4,8 @@
 ```{r,vocab,echo=FALSE}
 
 library(crayon)
+library(kableExtra)
+
 
 vocabURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/Vocab.csv")
 #vocab <- read.csv(vocaburl)
@@ -20,4 +22,83 @@ print(head(vocab))
 
 ```
 
-# Doing the same function using the read.csv function
+# Doing the same function using the read_delim
+
+```{r,delim,echo=FALSE}
+
+library (readr)
+  
+  delimURL <- "https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/Vocab.csv" 
+  
+  delimURL <- read_delim ( file =delimURL, delim = ',' )
+
+print(head(delimURL))
+
+```
+
+# Playing with ggplot
+
+```{r,ggplotplay,echo=FALSE}
+
+library (ggplot2)
+
+delimURL <- "https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/Vocab.csv" 
+
+delimURL <- read_delim ( file =delimURL, delim = ',' )
+  
+data(delimURL)
+head(delimURL)
+
+hist (delimURL$education, main = "Education Histogram" , xlab = "Education" )
+
+print("-------------------------------------------------------------------------------------")
+
+
+hist (delimURL$vocabulary, main = "Vocabulary Histogram" , xlab = "Vocabulary" )
+
+
+print("-------------------------------------------------------------------------------------")
+
+plot (education~vocabulary, data =delimURL)
+
+print("-------------------------------------------------------------------------------------")
+
+
+ggplot ( data =delimURL) + geom_density ( aes ( x =education), fill = "blue" )
+
+```
+
+# Now for the assignment
+
+```{r,assignment,echo=FALSE}
+
+
+delimURL <- "https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/Vocab.csv" 
+
+delimURL <- read_delim ( file =delimURL, delim = ',' )
+  
+data(delimURL)
+head(delimURL)
+
+
+## da is data frame & Ozone is column name 
+
+##for single column
+da <- data.frame(delimURL)
+
+mean(da$education, na.rm = TRUE)
+median(da$education, na.rm = TRUE)
+
+
+mean(da$vocabulary, na.rm = TRUE)
+median(da$vocabulary, na.rm = TRUE)
+
+
+
+
+
+```
+
+
+
+
