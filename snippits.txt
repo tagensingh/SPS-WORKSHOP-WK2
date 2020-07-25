@@ -1,0 +1,22 @@
+## da is data frame & Ozone is column name 
+
+##for single column
+da <- data.frame(delimURL)
+
+mean(da$education, na.rm = TRUE)
+median(da$education, na.rm = TRUE)
+
+
+mean(da$vocabulary, na.rm = TRUE)
+median(da$vocabulary, na.rm = TRUE)
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+library(hablar)
+
+# Convert columns to integer, numeric and factor
+df %>% 
+  convert(int(cyl, vs),num(disp:wt),fct(gear))
+          
+          
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

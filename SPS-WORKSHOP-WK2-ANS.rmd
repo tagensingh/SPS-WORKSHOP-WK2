@@ -2,29 +2,31 @@
 ## Week 2 Assignment
 ### Tage N Singh
 
-```{r,assignment,echo=FALSE}
+```{r,vocab,echo=FALSE}
+
+
 
 library(readr)
 
-delimURL <- "https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/Vocab.csv" 
+library(hablar)
 
-delimURL <- read_delim ( file =delimURL, delim = ',' )
-  
-data(delimURL)
-head(delimURL)
+vocabURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/Vocab.csv")
 
-
-## da is data frame & Ozone is column name 
-
-##for single column
-da <- data.frame(delimURL)
-
-mean(da$education, na.rm = TRUE)
-median(da$education, na.rm = TRUE)
+vocab <- read.table(file =vocabURL, header = TRUE , sep = ",")
 
 
-mean(da$vocabulary, na.rm = TRUE)
-median(da$vocabulary, na.rm = TRUE)
+print("The Summary of the dataset is" )
+
+summary(vocab)
+
+head(vocab)
+
+
+
+
+
+
+
 
 
 
