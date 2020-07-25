@@ -1,0 +1,23 @@
+# Done by Tage Singh
+## CUNY SPS R-Workshop
+
+```{r,vocab,echo=FALSE}
+
+library(crayon)
+
+vocabURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/Vocab.csv")
+#vocab <- read.csv(vocaburl)
+vocab <- read.table(file =vocabURL, header = TRUE , sep = ",")
+
+
+#print(vocab)
+
+
+print (summary(vocab))
+
+
+print(head(vocab))
+
+```
+
+# Doing the same function using the read.csv function
