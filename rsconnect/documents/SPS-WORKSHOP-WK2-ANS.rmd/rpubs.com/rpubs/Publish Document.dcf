@@ -1,0 +1,10 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/643147/998baf2531f5439eb066d99678986921
+bundleId: https://api.rpubs.com/api/v1/document/643147/998baf2531f5439eb066d99678986921
+url: http://rpubs.com/tagensingh/643147/edit
+when: 1595784187.40684

@@ -18,6 +18,8 @@ library(scales)
 
 physicianURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/OFP-2.csv")
 
+#####https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/OFP-2.csv
+
 physician <- read.table(file =physicianURL, header = TRUE , sep = ",")
 
 cat ("The Summary of the dataset is :" )
