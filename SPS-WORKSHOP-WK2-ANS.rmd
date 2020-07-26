@@ -10,16 +10,18 @@ library(readr)
 
 library(hablar)
 
-physcianURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/OFP-2.csv")
+physicianURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/OFP-2.csv")
 
-physcian <- read.table(file =physcianURL, header = TRUE , sep = ",")
+physician <- read.table(file =physicianURL, header = TRUE , sep = ",")
 
 
 print("The Summary of the dataset is" )
 
-summary(physcian)
-summary(physcian$Age)
-summary(physcian$Education_Years)
+summary(physician)
+summary(physician$Age)
+summary(physician$Education_Years)
+
+nrow(physician)
 
 ```
 
@@ -27,11 +29,22 @@ summary(physcian$Education_Years)
 
 ```{r,Question2}
 
-summary(physcian$Fam-Income)
+q2_newdata <- physician[1:1500,6:18]
 
 
+summary(q2_newdata)
 
-#newdata <- mydata[c(-3,-5)]
+nrow(q2_newdata)
+
+```
+
+```{r,question3}
+
+library(plyr)
+names(q2_newdata)
+
+q3_newdata <- rename(q2_newdata, c("Hospitalizations"="hosps","Chronic_Conditions"="chcond","Disability"="disable","Age"="time_on_earth","Black"="race","Sex"="gender","Married"="hooked_up","Education_Years"="eduyrs","Fam_Income"="faminc","Employed"="working","Private_Ins"="privins","Medicaid"="govtins","Region"="where"))
+
 
 
 
@@ -39,6 +52,31 @@ summary(physcian$Fam-Income)
 ```
 
 
+```{r,question4}
+summary(q3_newdata)
 
+nrow(q3_newdata)
+
+summary(q3_newdata$time_on_earth)
+
+summary(q3_newdata$eduyrs)
+
+```
+
+```{r,question5}
+q5_newdata <- q3_newdata
+
+q5_newdata$where[q5_newdata$where == "Other"] <- "something_else"
+q5_newdata$where[q5_newdata$where == "Northeast"] <- "north_east"
+q5_newdata$where[q5_newdata$where == "Midwest"] <- "middle_country"
+
+q5_newdata
+
+
+#summary(q3_newdata$where)
+
+
+
+```
 
 
