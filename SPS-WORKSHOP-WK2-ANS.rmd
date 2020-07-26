@@ -1,24 +1,27 @@
 # CUNY SPS R WORKSHOP
 ## Week 2 Assignment
 ### Tage N Singh
-
-```{r,vocab,echo=FALSE}
-
-
+#### This assignment uses a dataset of physician visits, it is located and accessed on github 
+#
+#
+```{r,Question1, echo=FALSE}
 
 library(readr)
 
 library(hablar)
 
+library(scales)
+
 physicianURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/OFP-2.csv")
 
 physician <- read.table(file =physicianURL, header = TRUE , sep = ",")
 
-
-print("The Summary of the dataset is" )
+cat ("The Summary of the dataset is :" )
 
 summary(physician)
+
 summary(physician$Age)
+
 summary(physician$Education_Years)
 
 nrow(physician)
@@ -70,7 +73,7 @@ q5_newdata$where[q5_newdata$where == "Other"] <- "something_else"
 q5_newdata$where[q5_newdata$where == "Northeast"] <- "north_east"
 q5_newdata$where[q5_newdata$where == "Midwest"] <- "middle_country"
 
-q5_newdata
+#q5_newdata
 
 
 #summary(q3_newdata$where)
