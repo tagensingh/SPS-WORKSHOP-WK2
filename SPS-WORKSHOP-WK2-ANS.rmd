@@ -18,16 +18,27 @@ physcian <- read.table(file =physcianURL, header = TRUE , sep = ",")
 print("The Summary of the dataset is" )
 
 summary(physcian)
-
-#head(phyci)
-
 summary(physcian$Age)
-summary(physcian$Education-Years)
+summary(physcian$Education_Years)
+
+```
+
+# Question 2 - New Dataframe
+
+```{r,Question2}
+
+summary(physcian$Fam-Income)
+
+
+
+#newdata <- mydata[c(-3,-5)]
+
+
 
 
 ```
 
 
 
-# - Testing Mean
+
 
