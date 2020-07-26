@@ -20,3 +20,29 @@ df %>%
           
           
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+for physician dataset - https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/OFP-2.csv
+
+Fields
+
+Physician_Visits,Non_Physician_Visits,Outpatient_Visits,Non_Physician_Outpatient_Visits,ER_Visits,Hospitalizations,Chronic_Conditions,Disability,Age,Black,Sex,Married,Education_Years,Fam_Income,Employed,Private_Ins,Medicaid,Region,Health_Status
+
+!!!!!!!!!!!!!!!!!!!11
+
+for row count ----- nrow(q2_newdata)
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+Renaming columns
+
+
+
+
+
+
+
+
+
