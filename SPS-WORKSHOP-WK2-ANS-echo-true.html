@@ -388,12 +388,27 @@ summary {
 </div>
 <div id="section-2" class="section level1">
 <h1></h1>
+<pre class="r"><code>library(readr)
+
+library(hablar)
+
+library(scales)</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;scales&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:readr&#39;:
 ## 
 ##     col_factor</code></pre>
+<pre class="r"><code># The following two lines allow the datasets to be accessed from my github repository assigned to this assignment
+
+physicianURL &lt;- (&quot;https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/OFP-2.csv&quot;)
+
+physician &lt;- read.table(file =physicianURL, header = TRUE , sep = &quot;,&quot;)
+
+cat (&quot;The Summary of the dataset is :&quot; )</code></pre>
 <pre><code>## The Summary of the dataset is :</code></pre>
+<pre class="r"><code># showing the summary structure of the dataset
+
+summary(physician)</code></pre>
 <pre><code>##  Physician_Visits Non_Physician_Visits Outpatient_Visits 
 ##  Min.   : 0.000   Min.   :  0.000      Min.   :  0.0000  
 ##  1st Qu.: 1.000   1st Qu.:  0.000      1st Qu.:  0.0000  
@@ -436,12 +451,17 @@ summary {
 ##                    
 ##                    
 ## </code></pre>
+<pre class="r"><code>cat(&quot;The following 2 lines will present the mean,median of the Age and Education years fields.&quot;)</code></pre>
 <pre><code>## The following 2 lines will present the mean,median of the Age and Education years fields.</code></pre>
+<pre class="r"><code>summary(physician$Age)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   66.00   69.00   73.00   74.02   78.00  109.00</code></pre>
+<pre class="r"><code>summary(physician$Education_Years)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    0.00    8.00   11.00   10.29   12.00   18.00</code></pre>
-<pre><code>## Veryifing the row count</code></pre>
+<pre class="r"><code># checking the row count in the dataset
+
+nrow(physician)</code></pre>
 <pre><code>## [1] 4406</code></pre>
 <div id="answer-to-question-2" class="section level4">
 <h4>Answer to Question 2</h4>
@@ -449,6 +469,13 @@ summary {
 </div>
 <div id="section-3" class="section level1">
 <h1></h1>
+<pre class="r"><code># The following line displays columns 6 to 18 and only the first 1500 rows
+
+q2_newdata &lt;- physician[1:1500,6:18]
+
+# Summary of the new dataset based on the criteria above
+
+summary(q2_newdata)</code></pre>
 <pre><code>##  Hospitalizations Chronic_Conditions   Disability          Age        
 ##  Min.   :0.0000   Min.   :0.000      Min.   :0.0000   Min.   : 66.00  
 ##  1st Qu.:0.0000   1st Qu.:0.000      1st Qu.:0.0000   1st Qu.: 69.00  
@@ -477,7 +504,9 @@ summary {
 ##                    
 ##                    
 ## </code></pre>
-<pre><code>## Veryifing the row count</code></pre>
+<pre class="r"><code># Verifying the row count to be 1500
+
+nrow(q2_newdata)</code></pre>
 <pre><code>## [1] 1500</code></pre>
 <div id="answer-to-question-3" class="section level4">
 <h4>Answer to Question 3</h4>
@@ -485,18 +514,28 @@ summary {
 </div>
 <div id="section-4" class="section level1">
 <h1></h1>
+<pre class="r"><code>library(plyr)
+
+# Displaying the names of the columns for columns 6 to 18
+
+names(q2_newdata)</code></pre>
 <pre><code>##  [1] &quot;Hospitalizations&quot;   &quot;Chronic_Conditions&quot; &quot;Disability&quot;        
 ##  [4] &quot;Age&quot;                &quot;Black&quot;              &quot;Sex&quot;               
 ##  [7] &quot;Married&quot;            &quot;Education_Years&quot;    &quot;Fam_Income&quot;        
 ## [10] &quot;Employed&quot;           &quot;Private_Ins&quot;        &quot;Medicaid&quot;          
 ## [13] &quot;Region&quot;</code></pre>
+<pre class="r"><code># changing the names of the columns as 
+
+q3_newdata &lt;- rename(q2_newdata, c(&quot;Hospitalizations&quot;=&quot;hosps&quot;,&quot;Chronic_Conditions&quot;=&quot;chcond&quot;,&quot;Disability&quot;=&quot;disable&quot;,&quot;Age&quot;=&quot;time_on_earth&quot;,&quot;Black&quot;=&quot;race&quot;,&quot;Sex&quot;=&quot;gender&quot;,&quot;Married&quot;=&quot;hooked_up&quot;,&quot;Education_Years&quot;=&quot;eduyrs&quot;,&quot;Fam_Income&quot;=&quot;faminc&quot;,&quot;Employed&quot;=&quot;working&quot;,&quot;Private_Ins&quot;=&quot;privins&quot;,&quot;Medicaid&quot;=&quot;govtins&quot;,&quot;Region&quot;=&quot;where&quot;))</code></pre>
 <div id="answer-to-question-4" class="section level4">
 <h4>Answer to Question 4</h4>
 </div>
 </div>
 <div id="section-5" class="section level1">
 <h1></h1>
+<pre class="r"><code>cat(&quot;The Summary of the Q3 dataset with new column names is &quot; )</code></pre>
 <pre><code>## The Summary of the Q3 dataset with new column names is</code></pre>
+<pre class="r"><code>summary(q3_newdata)</code></pre>
 <pre><code>##      hosps            chcond         disable       time_on_earth   
 ##  Min.   :0.0000   Min.   :0.000   Min.   :0.0000   Min.   : 66.00  
 ##  1st Qu.:0.0000   1st Qu.:0.000   1st Qu.:0.0000   1st Qu.: 69.00  
@@ -525,29 +564,54 @@ summary {
 ##                    
 ##                    
 ## </code></pre>
+<pre class="r"><code># Verifying the row count of be 1500
+
+cat(&quot;Verifying the row count&quot;)</code></pre>
 <pre><code>## Verifying the row count</code></pre>
+<pre class="r"><code>nrow(q3_newdata)</code></pre>
 <pre><code>## [1] 1500</code></pre>
+<pre class="r"><code># Displaying the summary of the original Age and Education Years column with new column headings and row count of 1500
+
+
+cat(&quot;--------------------------------------------------------------------------------------------------------------&quot;)</code></pre>
 <pre><code>## --------------------------------------------------------------------------------------------------------------</code></pre>
+<pre class="r"><code>cat(&quot;--------------------------------------------------------------------------------------------------------------&quot;)</code></pre>
 <pre><code>## --------------------------------------------------------------------------------------------------------------</code></pre>
+<pre class="r"><code>cat (&quot; The mean, median of the Age column now named time_on_earth is&quot;)</code></pre>
 <pre><code>##  The mean, median of the Age column now named time_on_earth is</code></pre>
+<pre class="r"><code>summary(q3_newdata$time_on_earth)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   66.00   69.00   73.00   73.99   78.00  109.00</code></pre>
+<pre class="r"><code>cat(&quot;--------------------------------------------------------------------------------------------------------------&quot;)</code></pre>
 <pre><code>## --------------------------------------------------------------------------------------------------------------</code></pre>
+<pre class="r"><code>cat (&quot; The mean, median of the ORIGINAL AGE column is&quot;)</code></pre>
 <pre><code>##  The mean, median of the ORIGINAL AGE column is</code></pre>
+<pre class="r"><code>summary(physician$Age)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   66.00   69.00   73.00   74.02   78.00  109.00</code></pre>
+<pre class="r"><code>cat(&quot; Note that the mean and median difference between the full dataset of records and a dataset of 1500 records is miniscule&quot;)</code></pre>
 <pre><code>##  Note that the mean and median difference between the full dataset of records and a dataset of 1500 records is miniscule</code></pre>
+<pre class="r"><code>cat(&quot;--------------------------------------------------------------------------------------------------------------&quot;)</code></pre>
 <pre><code>## --------------------------------------------------------------------------------------------------------------</code></pre>
+<pre class="r"><code>cat(&quot;--------------------------------------------------------------------------------------------------------------&quot;)</code></pre>
 <pre><code>## --------------------------------------------------------------------------------------------------------------</code></pre>
+<pre class="r"><code>cat (&quot; The mean, median of the Education column now named eduyrs is&quot;)</code></pre>
 <pre><code>##  The mean, median of the Education column now named eduyrs is</code></pre>
+<pre class="r"><code>summary(q3_newdata$eduyrs)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##     0.0     8.0    11.0    10.5    12.0    18.0</code></pre>
+<pre class="r"><code>cat(&quot;--------------------------------------------------------------------------------------------------------------&quot;)</code></pre>
 <pre><code>## --------------------------------------------------------------------------------------------------------------</code></pre>
+<pre class="r"><code>cat (&quot; The mean, median of the ORIGINAL EDUCATION column is&quot;)</code></pre>
 <pre><code>##  The mean, median of the ORIGINAL EDUCATION column is</code></pre>
+<pre class="r"><code>summary(physician$Education_Years)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    0.00    8.00   11.00   10.29   12.00   18.00</code></pre>
+<pre class="r"><code>cat(&quot; Note that the mean and median difference between the full dataset of records and a dataset of 1500 records is miniscule&quot;)</code></pre>
 <pre><code>##  Note that the mean and median difference between the full dataset of records and a dataset of 1500 records is miniscule</code></pre>
+<pre class="r"><code>cat(&quot;--------------------------------------------------------------------------------------------------------------&quot;)</code></pre>
 <pre><code>## --------------------------------------------------------------------------------------------------------------</code></pre>
+<pre class="r"><code>cat(&quot;--------------------------------------------------------------------------------------------------------------&quot;)</code></pre>
 <pre><code>## --------------------------------------------------------------------------------------------------------------</code></pre>
 <div id="answer-to-question-5" class="section level4">
 <h4>Answer to Question 5</h4>
@@ -555,17 +619,37 @@ summary {
 </div>
 <div id="section-6" class="section level1">
 <h1></h1>
+<pre class="r"><code># Creating a new dataframe to make modifications to cell values
+
+q5_newdata &lt;- q3_newdata
+
+cat(&quot;Replacing calues in colmn &#39;where &quot;)</code></pre>
 <pre><code>## Replacing calues in colmn &#39;where</code></pre>
+<pre class="r"><code>cat(&quot;Replacing values of other with smoething_else&quot;)</code></pre>
 <pre><code>## Replacing values of other with smoething_else</code></pre>
+<pre class="r"><code>q5_newdata$where[q5_newdata$where == &quot;Other&quot;] &lt;- &quot;something_else&quot;
+
+cat(&quot;Replacing values of Northeast with north_east&quot;)</code></pre>
 <pre><code>## Replacing values of Northeast with north_east</code></pre>
+<pre class="r"><code>q5_newdata$where[q5_newdata$where == &quot;Northeast&quot;] &lt;- &quot;north_east&quot;
+
+cat(&quot;Replacing values of midwest with middle_country&quot;)</code></pre>
 <pre><code>## Replacing values of midwest with middle_country</code></pre>
+<pre class="r"><code>q5_newdata$where[q5_newdata$where == &quot;Midwest&quot;] &lt;- &quot;middle_country&quot;
+
+#q5_newdata
+
+
+#summary(q3_newdata$where)</code></pre>
 <div id="answer-to-question-6" class="section level4">
 <h4>Answer to Question 6</h4>
 </div>
 </div>
 <div id="section-7" class="section level1">
 <h1></h1>
+<pre class="r"><code>cat(&quot;Our Original Dataset&quot;)</code></pre>
 <pre><code>## Our Original Dataset</code></pre>
+<pre class="r"><code>head(physician, n=10)</code></pre>
 <pre><code>##    Physician_Visits Non_Physician_Visits Outpatient_Visits
 ## 1                 0                    0                 0
 ## 2                 8                    0                 0
@@ -610,7 +694,9 @@ summary {
 ## 8        4175       No          No       No Midwest     Excellent
 ## 9       10300      Yes          No       No Midwest     Excellent
 ## 10      10421      Yes          No       No Midwest     Excellent</code></pre>
+<pre class="r"><code>cat(&quot;Resultant dataset from Question 2&quot;)</code></pre>
 <pre><code>## Resultant dataset from Question 2</code></pre>
+<pre class="r"><code>head(q2_newdata, n=10)</code></pre>
 <pre><code>##    Hospitalizations Chronic_Conditions Disability Age Black    Sex Married
 ## 1                 0                  1          1  79   yes Female      No
 ## 2                 0                  0          0  77    no Female      No
@@ -633,7 +719,9 @@ summary {
 ## 8               14       4175       No          No       No Midwest
 ## 9               16      10300      Yes          No       No Midwest
 ## 10              12      10421      Yes          No       No Midwest</code></pre>
+<pre class="r"><code>cat(&quot;Resultant dataset from Question 3&quot;)</code></pre>
 <pre><code>## Resultant dataset from Question 3</code></pre>
+<pre class="r"><code>head(q3_newdata, n=10)</code></pre>
 <pre><code>##    hosps chcond disable time_on_earth race gender hooked_up eduyrs faminc
 ## 1      0      1       1            79  yes Female        No      4    414
 ## 2      0      0       0            77   no Female        No      5    384
@@ -656,7 +744,9 @@ summary {
 ## 8       No      No      No Midwest
 ## 9      Yes      No      No Midwest
 ## 10     Yes      No      No Midwest</code></pre>
+<pre class="r"><code>cat(&quot;Resultant dataset from Question 5&quot;)</code></pre>
 <pre><code>## Resultant dataset from Question 5</code></pre>
+<pre class="r"><code>head(q5_newdata, n=10)</code></pre>
 <pre><code>##    hosps chcond disable time_on_earth race gender hooked_up eduyrs faminc
 ## 1      0      1       1            79  yes Female        No      4    414
 ## 2      0      0       0            77   no Female        No      5    384

@@ -6,7 +6,7 @@
 #
 #### Answer to Question 1
 #
-```{r, Question1, echo = TRUE}
+```{r, Question1, echo = FALSE}
 
 library(readr)
 
@@ -34,13 +34,14 @@ summary(physician$Education_Years)
 
 # checking the row count in the dataset
 
+cat("Veryifing the row count")
 nrow(physician)
 
 ```
 
 #### Answer to Question 2
 #
-```{r,Question2, echo = TRUE}
+```{r,Question2, echo = FALSE}
 
 # The following line displays columns 6 to 18 and only the first 1500 rows
 
@@ -52,13 +53,14 @@ summary(q2_newdata)
 
 # Verifying the row count to be 1500
 
+cat("Veryifing the row count")
 nrow(q2_newdata)
 
 ```
 
 #### Answer to Question 3
 #
-```{r,question3, echo = TRUE}
+```{r,question3, echo = FALSE}
 
 library(plyr)
 
@@ -74,7 +76,7 @@ q3_newdata <- rename(q2_newdata, c("Hospitalizations"="hosps","Chronic_Condition
 
 #### Answer to Question 4
 #
-```{r,question4, echo = TRUE}
+```{r,question4, echo = FALSE}
 
 cat("The Summary of the Q3 dataset with new column names is " )
 
@@ -126,7 +128,7 @@ cat("---------------------------------------------------------------------------
 
 #### Answer to Question 5
 #
-```{r,question5, echo = TRUE}
+```{r,question5, echo = FALSE}
 
 # Creating a new dataframe to make modifications to cell values
 
@@ -155,7 +157,7 @@ q5_newdata$where[q5_newdata$where == "Midwest"] <- "middle_country"
 
 #### Answer to Question 6
 #
-```{r,question6, echo = TRUE}
+```{r,question6, echo = FALSE}
 
 cat("Our Original Dataset")
 head(physician, n=10)
