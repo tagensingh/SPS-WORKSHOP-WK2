@@ -4,7 +4,9 @@
 #### This assignment uses a dataset of physician visits, it is located and accessed on github 
 #
 #
-```{r,Question1, echo=FALSE}
+#### Answer to Question 1
+#
+```{r, Question1, echo = TRUE}
 
 library(readr)
 
@@ -12,65 +14,136 @@ library(hablar)
 
 library(scales)
 
+# The following two lines allow the datasets to be accessed from my github repository assigned to this assignment
+
 physicianURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/OFP-2.csv")
 
 physician <- read.table(file =physicianURL, header = TRUE , sep = ",")
 
 cat ("The Summary of the dataset is :" )
 
+# showing the summary structure of the dataset
+
 summary(physician)
+
+cat("The following 2 lines will present the mean,median of the Age and Education years fields.")
 
 summary(physician$Age)
 
 summary(physician$Education_Years)
 
+# checking the row count in the dataset
+
 nrow(physician)
 
 ```
 
-# Question 2 - New Dataframe
+#### Answer to Question 2
+#
+```{r,Question2, echo = TRUE}
 
-```{r,Question2}
+# The following line displays columns 6 to 18 and only the first 1500 rows
 
 q2_newdata <- physician[1:1500,6:18]
 
+# Summary of the new dataset based on the criteria above
 
 summary(q2_newdata)
+
+# Verifying the row count to be 1500
 
 nrow(q2_newdata)
 
 ```
 
-```{r,question3}
+#### Answer to Question 3
+#
+```{r,question3, echo = TRUE}
 
 library(plyr)
+
+# Displaying the names of the columns for columns 6 to 18
+
 names(q2_newdata)
+
+# changing the names of the columns as 
 
 q3_newdata <- rename(q2_newdata, c("Hospitalizations"="hosps","Chronic_Conditions"="chcond","Disability"="disable","Age"="time_on_earth","Black"="race","Sex"="gender","Married"="hooked_up","Education_Years"="eduyrs","Fam_Income"="faminc","Employed"="working","Private_Ins"="privins","Medicaid"="govtins","Region"="where"))
 
-
-
-
-
 ```
 
+#### Answer to Question 4
+#
+```{r,question4, echo = TRUE}
 
-```{r,question4}
+cat("The Summary of the Q3 dataset with new column names is " )
+
 summary(q3_newdata)
 
+# Verifying the row count of be 1500
+
+cat("Verifying the row count")
 nrow(q3_newdata)
+
+# Displaying the summary of the original Age and Education Years column with new column headings and row count of 1500
+
+
+cat("--------------------------------------------------------------------------------------------------------------")
+cat("--------------------------------------------------------------------------------------------------------------")
+
+cat (" The mean, median of the Age column now named time_on_earth is")
 
 summary(q3_newdata$time_on_earth)
 
+cat("--------------------------------------------------------------------------------------------------------------")
+
+cat (" The mean, median of the ORIGINAL AGE column is")
+
+summary(physician$Age)
+
+cat(" Note that the mean and median difference between the full dataset of records and a dataset of 1500 records is miniscule")
+
+cat("--------------------------------------------------------------------------------------------------------------")
+cat("--------------------------------------------------------------------------------------------------------------")
+
+cat (" The mean, median of the Education column now named eduyrs is")
+
 summary(q3_newdata$eduyrs)
+
+cat("--------------------------------------------------------------------------------------------------------------")
+
+
+cat (" The mean, median of the ORIGINAL EDUCATION column is")
+
+summary(physician$Education_Years)
+
+cat(" Note that the mean and median difference between the full dataset of records and a dataset of 1500 records is miniscule")
+
+cat("--------------------------------------------------------------------------------------------------------------")
+cat("--------------------------------------------------------------------------------------------------------------")
 
 ```
 
-```{r,question5}
+#### Answer to Question 5
+#
+```{r,question5, echo = TRUE}
+
+# Creating a new dataframe to make modifications to cell values
+
 q5_newdata <- q3_newdata
 
+cat("Replacing calues in colmn 'where ")
+
+cat("Replacing values of other with smoething_else")
+
 q5_newdata$where[q5_newdata$where == "Other"] <- "something_else"
+
+cat("Replacing values of Northeast with north_east")
+
 q5_newdata$where[q5_newdata$where == "Northeast"] <- "north_east"
+
+cat("Replacing values of midwest with middle_country")
+
 q5_newdata$where[q5_newdata$where == "Midwest"] <- "middle_country"
 
 #q5_newdata
@@ -78,8 +151,23 @@ q5_newdata$where[q5_newdata$where == "Midwest"] <- "middle_country"
 
 #summary(q3_newdata$where)
 
-
-
 ```
 
+#### Answer to Question 6
+#
+```{r,question6, echo = TRUE}
+
+cat("Our Original Dataset")
+head(physician, n=10)
+
+cat("Resultant dataset from Question 2")
+head(q2_newdata, n=10)
+
+cat("Resultant dataset from Question 3")
+head(q3_newdata, n=10)
+
+cat("Resultant dataset from Question 5")
+head(q5_newdata, n=10)
+
+```
 
