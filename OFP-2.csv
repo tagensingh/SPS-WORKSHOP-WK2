@@ -1,4 +1,4 @@
-Physician-Visits,Non-Physician-Visits,Outpatient-Visits,Non-Physician-Outpatient-Visits,ER-Visits,Hospitalizations,Chronic-Conditions,Disability,Age,Black,Sex,Married,Education-Years,Fam-Income,Employed,Private-Ins,Medicaid,Region,Health-Status
+Physician-Visits,Non-Physician-Visits,Outpatient-Visits,Non-Physician-Outpatient-Visits,ER-Visits,Hospitalizations,Chronic-Conditions,Disability,Age,Black,Sex,Married,Education_Years,Fam-Income,Employed,Private-Ins,Medicaid,Region,Health-Status
 0,0,0,0,0,0,1,1,79,yes,Female,No,4,414,No,No,No,Midwest,Excellent
 8,0,0,0,0,0,0,0,77,no,Female,No,5,384,No,No,Yes,Midwest,Excellent
 0,0,0,0,0,0,2,0,92,no,Female,No,8,480,No,No,No,Midwest,Excellent

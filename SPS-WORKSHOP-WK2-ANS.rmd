@@ -10,30 +10,24 @@ library(readr)
 
 library(hablar)
 
-vocabURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/Vocab.csv")
+physcianURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WORKSHOP-WK2/master/OFP-2.csv")
 
-vocab <- read.table(file =vocabURL, header = TRUE , sep = ",")
+physcian <- read.table(file =physcianURL, header = TRUE , sep = ",")
 
 
 print("The Summary of the dataset is" )
 
-summary(vocab)
+summary(physcian)
 
-head(vocab)
+#head(phyci)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+summary(physcian$Age)
+summary(physcian$Education-Years)
 
 
 ```
+
+
+
+# - Testing Mean
+
