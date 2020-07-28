@@ -1,7 +1,7 @@
 # CUNY SPS R WORKSHOP
 ## Week 2 Assignment
 ### Tage N Singh
-#### This assignment uses a dataset of physician visits, it is located and accessed on github 
+#### This assignment uses a dataset of physician visits, it is located and accessed on github Got 27 from 25
 #
 #
 #### Answer to Question 1
